@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", () => {
    function testWebP(callback) {
       let webP = new Image()
       webP.onload = webP.onerror = function () {
@@ -18,9 +18,6 @@ $(document).ready(function () {
 
    // HTML data-da="where(uniq class name),position(digi),when(breakpoint)"
    // e.x. data-da="item,2,992"
-
-   ;("use strict")
-
    ;(function () {
       let originalPositions = []
       let daElements = document.querySelectorAll("[data-da]")
@@ -192,12 +189,36 @@ $(document).ready(function () {
 
    let iconMenu = document.querySelector(".icon-menu")
    let body = document.querySelector("body")
-	let menuBody = document.querySelector(".menu__body")
+   let menuBody = document.querySelector(".menu__body")
    if (iconMenu) {
       iconMenu.addEventListener("click", function () {
          iconMenu.classList.toggle("active")
          body.classList.toggle("lock")
-			menuBody.classList.toggle("active")
+         menuBody.classList.toggle("active")
       })
    }
+
+	let constructorItems = document.querySelectorAll(".item-constructor")
+
+   constructorItems.forEach(function (item) {
+      item.addEventListener("click", function (e) {
+			item.classList.toggle("active")
+			
+			let sumBlock = item.closest('.constructor').querySelector('.constructor__sum');
+			let oldSum = parseFloat(sumBlock.textContent);
+			let newSum = item.classList.contains('active') ? oldSum + +item.dataset.price : oldSum - +item.dataset.price;
+			sumBlock.textContent = `${newSum} рублей `;
+      })
+	})
+	
+	let ranges = document.querySelectorAll('input[type=range]');
+	ranges.forEach(function(item) {
+		item.addEventListener('input', function (e) {
+			if(document.querySelector(`.${item.id}Value`)) {
+				document.querySelector(`.${item.id}Value`).textContent = item.value;
+			} else {
+				console.log('lol');
+			}
+		});
+	});
 })
