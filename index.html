@@ -63,9 +63,9 @@
          </a>
 
          <a
-            href="#request"
+            href="#contact"
             data-da="menu__body,3,479.98"
-            class="header__btn btn pl"
+            class="header__btn btn goto"
             >Оставить заявку</a
          >
       </div>
@@ -410,7 +410,7 @@
                               >
                            </div>
 
-                           <a href="#request" class="services__btn btn pl"
+                           <a href="#contact" class="services__btn btn goto"
                               >Рассчитать вашу подписку</a
                            >
                         </div>
@@ -420,7 +420,9 @@
             </section>
 
             <section class="benefits">
-               <div class="benefits__container container"></div>
+               <div class="benefits__container container">
+
+					</div>
             </section>
 
             <section class="steps">
@@ -505,7 +507,7 @@
                         </div>
                      </div>
 
-                     <a href="#request" class="steps__btn btn pl"
+                     <a href="#contact" class="steps__btn btn goto"
                         >Хочу чистую квартиру</a
                      >
                   </div>
@@ -774,7 +776,49 @@
             </section>
 
             <section class="contact">
-               <div class="contact__container container"></div>
+               <div class="contact__container container">
+						<h2 class="contact__title title">Заполните форму и мы с Вами свяжемся</h2>
+						<form action="#" class="contact__form form">
+							<div class="contact__input">
+								<input autocomplete="off" type="text" name="name" placeholder="Имя*" class="input" />
+							</div>
+							<div class="contact__input">
+								<input autocomplete="off" type="text" name="phone" placeholder="Телефон*" class="input" />
+							</div>
+							<div class="contact__tabs">
+								<label class="contact__item item-constructor">
+									<div class="item-constructor__icon">
+										<img
+											src="./img/services/bathroom.svg"
+											alt="Bathroom"
+										/>
+									</div>
+									<p class="item-constructor__title">
+										Конструктор
+									</p>
+									<input class="item-constructor__checkbox" type="radio" name="fare" value="Конструктор" checked>
+									<span class="item-constructor__checkmark"></span>
+								</label>
+								<label class="contact__item item-constructor">
+									<div class="item-constructor__icon">
+										<img
+											src="./img/services/bathroom.svg"
+											alt="Bathroom"
+										/>
+									</div>
+									<p class="item-constructor__title">
+										Под ключ
+									</p>
+									<input class="item-constructor__checkbox" type="radio" name="fare" value="Под ключ">
+									<span class="item-constructor__checkmark"></span>
+								</label>
+							</div>
+							
+							<button type="submit" class="popup__btn btn">
+								<span class="btn__text">Оставить заявку</span>
+							</button>
+						</form>
+					</div>
             </section>
          </main>
          <footer class="footer">
@@ -821,210 +865,13 @@
             </svg>
             +7 (495) 135-01-99
       <a
-            href="#request"
-            class="footer__btn btn pl"
+            href="#contact"
+            class="footer__btn btn goto"
             >Оставить заявку</a
          >
    </div>
 </footer>
- <div class="popup popup-request">
-	<div class="popup__container">
-		<div class="popup__content">
-			<div class="popup__close"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18"><defs><path id="avzva" d="M691.485 160.07l-1.414 1.415-7.071-7.071-7.071 7.071-1.414-1.414 7.07-7.071-7.07-7.071 1.414-1.415 7.07 7.071 7.072-7.07 1.414 1.414-7.07 7.07z"/></defs><g><g transform="translate(-674 -144)"><use fill="#2e2e2e" xlink:href="#avzva"/></g></g></svg></div>
-			<div class="popup__title">Заполните форму и мы с Вами свяжемся</div>
-			<form action="#" class="popup-form form">
-				<div class="popup__input">
-					<input autocomplete="off" type="text" name="name" placeholder="Имя*" class="input" />
-				</div>
-				<div class="popup__input">
-					<input autocomplete="off" type="text" name="phone" placeholder="Телефон*" class="input" />
-				</div>
-				<div class="popup__input">
-					<label for="numberRange" class="range__label popup__label">
-						Выберите количество комнат
-					</label>
 
-					<input
-						type="range"
-						min="1"
-						max="15"
-						id="popupRange"
-						value="1"
-						name="rooms"
-						class="range__input"
-					/>
-
-					<span class="range__value popupRangeValue">1</span>
-				</div> 
-				<div class="constructor">
-					<div class="constructor__body">
-
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-						<label class="constructor__item item-constructor" data-price="500">
-							<div class="item-constructor__icon">
-								<img
-									src="./img/services/bathroom.svg"
-									alt="Bathroom"
-								/>
-							</div>
-							<p class="item-constructor__title">
-								Уборка ванной комнаты
-							</p>
-							<input class="item-constructor__checkbox" type="checkbox" name="services[]" value="bathroom">
-							<span class="item-constructor__checkmark"></span>
-						</label>
-					</div>
-				</div>
-				<button type="submit" class="popup__btn btn">
-					<span class="btn__text">Оставить заявку</span>
-				</button>
-			</form>
-		</div>
-	</div>
-</div>
       </div>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script> -->
