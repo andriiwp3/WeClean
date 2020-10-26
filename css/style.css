@@ -1000,6 +1000,35 @@ body.ie {
   text-transform: uppercase;
 }
 
+.footer {
+  padding: 20px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer__logo {
+  width: 80px;
+}
+
+.footer__logo img {
+  max-width: 100%;
+}
+
+.footer__phone {
+  margin: 0 20px 0 auto;
+}
+
 .hero {
   padding: 130px 0px 0px 0px;
 }
@@ -1515,6 +1544,26 @@ body.ie {
   }
 }
 
+@media (max-width: 550px) {
+  .footer__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .footer__logo {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .footer__phone {
+    margin: 0 auto 15px;
+  }
+}
+
 @media (max-width: 479.98px) {
   .header__icon {
     -webkit-box-ordinal-group: 2;
@@ -1534,5 +1583,9 @@ body.ie {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 31%;
             flex: 0 0 31%;
+  }
+
+  .item-faq__question {
+    margin: 0px 40px 0px 0px;
   }
 }

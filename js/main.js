@@ -1017,7 +1017,12 @@ if($('.testimonials__slider').length>0){
 		slidesToShow:2,
 		autoplaySpeed: 3000,
 		adaptiveHeight: true,
-		//appendDots:
+		responsive: [{
+			breakpoint: 600,
+			settings: {
+				slidesToShow:1,
+			},
+		}]
 	});
 }
 /*
