@@ -191,6 +191,32 @@ body.lock {
   background-color: #003162;
 }
 
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social li {
+  margin: 0px 9px 0px 0px;
+}
+
+.social li:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.social__icon {
+  display: block;
+  width: 20px;
+}
+
+.social__icon img {
+  max-width: 100%;
+}
+
 /*
 .row:after {
 	display: block;
@@ -887,12 +913,20 @@ body.ie {
 
 .header__logo {
   position: relative;
-  width: 70px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 70px;
+          flex: 0 0 70px;
   z-index: 51;
 }
 
 .header__logo img {
   max-width: 100%;
+}
+
+.header__social {
+  position: relative;
+  margin: 0px 15px 0px auto;
+  z-index: 51;
 }
 
 .header__menu {
@@ -911,7 +945,6 @@ body.ie {
 
 .header__phone {
   position: relative;
-  margin: 0px 0px 0px auto;
   z-index: 51;
 }
 
@@ -1025,8 +1058,16 @@ body.ie {
   max-width: 100%;
 }
 
+.footer__social {
+  margin: 0px 15px 0px auto;
+}
+
+.footer__social a {
+  width: 18px;
+}
+
 .footer__phone {
-  margin: 0 20px 0 auto;
+  margin: 0 20px 0 0;
 }
 
 .hero {
@@ -1449,7 +1490,14 @@ body.ie {
   }
 
   .header__logo {
-    width: 55px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 55px;
+            flex: 0 0 55px;
+    margin: 0 auto;
+  }
+
+  .header__social {
+    margin: 0 15px 0 0;
   }
 
   .header__phone {
@@ -1544,7 +1592,7 @@ body.ie {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 620px) {
   .footer__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1559,6 +1607,10 @@ body.ie {
     margin: 0px 0px 15px 0px;
   }
 
+  .footer__social {
+    margin: 0 auto 15px;
+  }
+
   .footer__phone {
     margin: 0 auto 15px;
   }
@@ -1569,6 +1621,17 @@ body.ie {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+
+  .header__logo {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .header__social {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    margin: 0;
   }
 
   .header__phone {
