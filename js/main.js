@@ -952,60 +952,145 @@ document.addEventListener("DOMContentLoaded", () => {
       })
    }
 
-	let constructorItems = document.querySelectorAll(".item-constructor")
+   let constructorItems = document.querySelectorAll(
+      ".item-constructor__checkbox"
+   )
 
    constructorItems.forEach(function (item) {
-      item.addEventListener("click", function (e) {
-			item.classList.toggle("active")
-			
-			let sumBlock = item.closest('.constructor').querySelector('.constructor__sum');
-			let oldSum = parseFloat(sumBlock.textContent);
-			let newSum = item.classList.contains('active') ? oldSum + +item.dataset.price : oldSum - +item.dataset.price;
-			sumBlock.textContent = `${newSum} рублей `;
+      item.addEventListener("change", function (e) {
+         let sumBlock = item
+            .closest(".constructor")
+            .querySelector(".constructor__sum")
+         if (sumBlock) {
+            let oldSum = parseFloat(sumBlock.textContent)
+            let newSum = item.checked
+               ? oldSum + +item.closest(".item-constructor").dataset.price
+               : oldSum - +item.closest(".item-constructor").dataset.price
+            let word
+            switch (newSum) {
+               case 1:
+                  word = "рубль"
+                  break
+               case 2:
+               case 3:
+               case 4:
+                  word = "рубля"
+                  break
+               default:
+                  word = "рублей"
+                  break
+            }
+            sumBlock.textContent = `${newSum} ${word}`
+         }
       })
-	})
-	
-	let ranges = document.querySelectorAll('input[type=range]');
-	ranges.forEach(function(item) {
-		item.addEventListener('input', function (e) {
-			if(document.querySelector(`.${item.id}Value`)) {
-				document.querySelector(`.${item.id}Value`).textContent = item.value;
-			} else {
-				console.log('lol');
+   })
+
+   let ranges = document.querySelectorAll(".range__input")
+   ranges.forEach(function (range) {
+      range.addEventListener("input", function (e) {
+			
+         if (document.querySelector(`.${range.id}Value`)) {
+            document.querySelector(`.${range.id}Value`).textContent = range.value
 			}
-		});
-	});
+			
+			ranges.forEach(function (item) {
+				item.value = range.value
+				if (document.querySelector(`.${item.id}Value`)) {
+					document.querySelector(`.${item.id}Value`).textContent = range.value
+				}
+			})
+      })
+   })
 
-	$.each($('.spoller.active'), function (index, val) {
-		$(this).next().show();
-	});
-	$('body').on('click', '.spoller', function (event) {
-		if ($(this).hasClass('mob') && !isMobile.any()) {
-			return false;
-		}
-	
-		if ($(this).parents('.one').length > 0) {
-			$(this).parents('.one').find('.spoller').not($(this)).removeClass('active').next().slideUp(300);
-			$(this).parents('.one').find('.spoller').not($(this)).parent().removeClass('active');
-		}
-	
-		if ($(this).hasClass('closeall') && !$(this).hasClass('active')) {
-			$.each($(this).closest('.spollers').find('.spoller'), function (index, val) {
-				$(this).removeClass('active');
-				$(this).next().slideUp(300);
-			});
-		}
-		$(this).toggleClass('active').next().slideToggle(300, function (index, val) {
-			if ($(this).parent().find('.slick-slider').length > 0) {
-				$(this).parent().find('.slick-slider').slick('setPosition');
-			}
-		});
-		return false;
-	});
+   $.each($(".spoller.active"), function (index, val) {
+      $(this).next().show()
+   })
+   $("body").on("click", ".spoller", function (event) {
+      if ($(this).hasClass("mob") && !isMobile.any()) {
+         return false
+      }
 
-	$(".item-gallery").twentytwenty();
+      if ($(this).parents(".one").length > 0) {
+         $(this)
+            .parents(".one")
+            .find(".spoller")
+            .not($(this))
+            .removeClass("active")
+            .next()
+            .slideUp(300)
+         $(this)
+            .parents(".one")
+            .find(".spoller")
+            .not($(this))
+            .parent()
+            .removeClass("active")
+      }
 
-	
+      if ($(this).hasClass("closeall") && !$(this).hasClass("active")) {
+         $.each($(this).closest(".spollers").find(".spoller"), function (
+            index,
+            val
+         ) {
+            $(this).removeClass("active")
+            $(this).next().slideUp(300)
+         })
+      }
+      $(this)
+         .toggleClass("active")
+         .next()
+         .slideToggle(300, function (index, val) {
+            if ($(this).parent().find(".slick-slider").length > 0) {
+               $(this).parent().find(".slick-slider").slick("setPosition")
+            }
+         })
+      return false
+   })
+
+   $(".item-gallery").twentytwenty()
+
+   //POPUP
+   $(".pl").click(function (event) {
+      var pl = $(this).attr("href").replace("#", "")
+      popupOpen(pl)
+      return false
+   })
+   function popupOpen(pl) {
+      $(".popup").removeClass("active").hide()
+      setTimeout(function () {
+         $("body").addClass("lock")
+      }, 300)
+      history.pushState("", "", "#" + pl)
+      $(".popup-" + pl)
+         .fadeIn(300)
+         .delay(300)
+         .addClass("active")
+   }
+   function popupClose() {
+      $(".popup").removeClass("active").fadeOut(300)
+      if (!$(".menu__body").hasClass("active")) {
+         $("body").removeClass("lock")
+      }
+
+      history.pushState("", "", window.location.href.split("#")[0])
+   }
+   $(".popup-close,.popup__close").click(function (event) {
+      popupClose()
+      return false
+   })
+   $(".popup").click(function (e) {
+      if (
+         !$(e.target).is(".popup>.popup__container *") ||
+         $(e.target).is(".popup__close")
+      ) {
+         popupClose()
+         return false
+      }
+   })
+   $(document).on("keydown", function (e) {
+      if (e.which == 27) {
+         popupClose()
+      }
+   })
 })
 
 //SLIDERS
@@ -1021,6 +1106,30 @@ if($('.testimonials__slider').length>0){
 			breakpoint: 600,
 			settings: {
 				slidesToShow:1,
+			},
+		}]
+	});
+}
+if($('.steps__cards').length>0){
+	$('.steps__cards').slick({
+		autoplay: true,
+		infinite: false,
+		arrows: true,
+		slidesToShow:3,
+		autoplaySpeed: 3000,
+		appendArrows:$('.steps__arrows'),
+		nextArrow:`<button type="button" class="slick__next"><img src="./img/icons/arrow-next.svg" alt="" /></button>`,
+		prevArrow:`<button type="button" class="slick__prev"><img src="./img/icons/arrow-prev.svg" alt="" /></button>`,
+		responsive: [{
+			breakpoint: 991.98,
+			settings: {
+				slidesToShow: 2,
+			},
+		},
+		{
+			breakpoint: 767.98,
+			settings: {
+				slidesToShow: 1,
 			},
 		}]
 	});
