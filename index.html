@@ -115,11 +115,11 @@
             <section class="services">
                <div class="services__container container">
                   <h2 class="services__title title">
-                     Услуги клининговой компании WeClean
+                     Наши тарифы
                   </h2>
 
                   <div class="services__body">
-                     <div class="services__constructor constructor">
+                     <div class="services__section constructor">
                         <h3 class="services__subtitle subtitle">Конструктор</h3>
                         <p class="services__desc desc">
                            Выберите только самое необходимое, не переплачивайте
@@ -382,7 +382,7 @@
 
                         <p class="constructor__sum subtitle">0 рублей</p>
                      </div>
-                     <div class="services__number number">
+                     <div class="services__section number">
                         <h3 class="services__subtitle subtitle">Под ключ</h3>
                         <p class="services__desc desc">
                            Скажите только количество комнат, все остальные
@@ -400,7 +400,7 @@
                               <input
                                  type="range"
                                  min="1"
-                                 max="15"
+                                 max="5"
                                  id="numberRange"
 											value="1"
 											class="range__input"
@@ -408,7 +408,38 @@
                               <span class="range__value numberRangeValue"
                                  >1</span
                               >
-                           </div>
+									</div>
+
+									<div class="number__tabs numberRangeTariffs">
+										<label class="number__item item-constructor" data-room-price="2000">
+											<div class="item-constructor__icon">
+												<img
+													src="./img/services/bathroom.svg"
+													alt="Bathroom"
+												/>
+											</div>
+											<p class="item-constructor__title">
+												Подписка на <span>2</span> уборки в месяц
+											</p>
+											<input class="item-constructor__checkbox tariffscheckbox" type="radio" name="keyTariffs" value="Подписка на 2 уборки в месяц" checked>
+											<span class="item-constructor__checkmark"></span>
+										</label>
+										<label class="number__item item-constructor" data-room-price="1800">
+											<div class="item-constructor__icon">
+												<img
+													src="./img/services/bathroom.svg"
+													alt="Bathroom"
+												/>
+											</div>
+											<p class="item-constructor__title">
+												Подписка на <span>4</span> уборки в месяц
+											</p>
+											<input class="item-constructor__checkbox tariffscheckbox" type="radio" name="keyTariffs" value="Подписка на 4 уборки в месяц">
+											<span class="item-constructor__checkmark"></span>
+										</label>
+									</div>
+									
+									<p class="number__sum subtitle numberRangeSum"></p>
 
                            <a href="#contact" class="services__btn btn goto"
                               >Рассчитать вашу подписку</a

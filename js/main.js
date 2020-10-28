@@ -921,36 +921,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function customAdapt() {
          //const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       }
-   })()
-
-   $(".goto").click(function () {
-      var el = $(this).attr("href").replace("#", "")
-      var offset = 0
-      $("body,html").animate(
-         {
-            scrollTop: $("." + el).offset().top + offset - $("header").height(),
-         },
-         700,
-         function () {}
-      )
-
-      if ($(".menu__body").hasClass("active")) {
-         $(".menu__body,.icon-menu").removeClass("active")
-         $("body").removeClass("lock")
-      }
-      return false
-   })
-
-   let iconMenu = document.querySelector(".icon-menu")
-   let body = document.querySelector("body")
-   let menuBody = document.querySelector(".menu__body")
-   if (iconMenu) {
-      iconMenu.addEventListener("click", function () {
-         iconMenu.classList.toggle("active")
-         body.classList.toggle("lock")
-         menuBody.classList.toggle("active")
-      })
-   }
+	})()
 
    let constructorItems = document.querySelectorAll(
       ".item-constructor__checkbox"
@@ -959,8 +930,11 @@ document.addEventListener("DOMContentLoaded", () => {
    constructorItems.forEach(function (item) {
       item.addEventListener("change", function (e) {
          let sumBlock = item
-            .closest(".constructor")
-            .querySelector(".constructor__sum")
+				.closest(".constructor")
+				? item.closest(".constructor").querySelector(".constructor__sum")
+				? item.closest(".constructor").querySelector(".constructor__sum")
+				: false
+				: false
          if (sumBlock) {
             let oldSum = parseFloat(sumBlock.textContent)
             let newSum = item.checked
@@ -980,19 +954,40 @@ document.addEventListener("DOMContentLoaded", () => {
                   word = "рублей"
                   break
             }
-            sumBlock.textContent = `${newSum} ${word}`
-         }
+				sumBlock.textContent = `${newSum} ${word}`
+			}
       })
-   })
+	})
 
    let ranges = document.querySelectorAll(".range__input")
    ranges.forEach(function (range) {
+		calcKeyTariffSum (1, document.querySelector(`.${range.id}Tariffs input:checked`).closest('[data-room-price]').dataset.roomPrice, document.querySelector(`.${range.id}Sum`))
       range.addEventListener("input", function (e) {		
          if (document.querySelector(`.${range.id}Value`)) {
             document.querySelector(`.${range.id}Value`).textContent = range.value
 			}
+			if (document.querySelector(`.${range.id}Sum`) && document.querySelector(`.${range.id}Tariffs`)) {
+				calcKeyTariffSum(range.value, document.querySelector(`.${range.id}Tariffs input:checked`).closest('[data-room-price]').dataset.roomPrice, document.querySelector(`.${range.id}Sum`))
+			}
       })
-   })
+	})
+	
+	let tariffscheckbox = document.querySelectorAll('.tariffscheckbox');
+
+	tariffscheckbox.forEach(function(item) {
+		item.addEventListener('change', function (e) {
+			let chainClass = item.closest('label').classList[0].split('__')[0]
+			
+			if (!chainClass) return
+
+			let rooms = document.querySelector(`#${chainClass}Range`).value;
+			let activeTariffPrice = document.querySelector(`.${chainClass}RangeTariffs input:checked`).closest('[data-room-price]').dataset.roomPrice;
+			let sumBlock = document.querySelector(`.${chainClass}RangeSum`);
+			if (rooms && activeTariffPrice && sumBlock) {
+				calcKeyTariffSum(rooms, activeTariffPrice, sumBlock)
+			}
+		});
+	});
 
    $.each($(".spoller.active"), function (index, val) {
       $(this).next().show()
@@ -1038,7 +1033,59 @@ document.addEventListener("DOMContentLoaded", () => {
       return false
    })
 
-   $(".item-gallery").twentytwenty()
+	$(".item-gallery").twentytwenty()
+
+	$(".goto").click(function () {
+      var el = $(this).attr("href").replace("#", "")
+      var offset = 0
+      $("body,html").animate(
+         {
+            scrollTop: $("." + el).offset().top + offset - $("header").height(),
+         },
+         700,
+         function () {}
+      )
+
+      if ($(".menu__body").hasClass("active")) {
+         $(".menu__body,.icon-menu").removeClass("active")
+         $("body").removeClass("lock")
+      }
+      return false
+   })
+
+   let iconMenu = document.querySelector(".icon-menu")
+   let body = document.querySelector("body")
+   let menuBody = document.querySelector(".menu__body")
+   if (iconMenu) {
+      iconMenu.addEventListener("click", function () {
+         iconMenu.classList.toggle("active")
+         body.classList.toggle("lock")
+         menuBody.classList.toggle("active")
+      })
+   }
+	
+	function calcKeyTariffSum (rooms = 1, tariffPrice, sumBlock) {
+		if (rooms , tariffPrice, sumBlock) {
+			let newSum = rooms * tariffPrice
+			let word
+            switch (newSum) {
+               case 1:
+                  word = "рубль"
+                  break
+               case 2:
+               case 3:
+               case 4:
+                  word = "рубля"
+                  break
+               default:
+                  word = "рублей"
+                  break
+            }
+				sumBlock.textContent = `${newSum} ${word}`
+		} else {
+			return false;
+		}
+	}
 })
 
 //SLIDERS
