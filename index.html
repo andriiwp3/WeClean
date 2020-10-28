@@ -394,58 +394,60 @@
                         </p>
 
                         <div class="number__body">
-                           <div class="number__range">
-                              <label
-                                 for="numberRange"
-                                 class="range__label number__label"
-                                 >Выберите количество комнат</label
-                              >
+									<div class="number__cont">
+										<div class="number__range">
+											<label
+												for="numberRange"
+												class="range__label number__label"
+												>Выберите количество комнат</label
+											>
 
-                              <input
-                                 type="range"
-                                 min="1"
-                                 max="5"
-                                 id="numberRange"
-											value="1"
-											class="range__input"
-                              />
-                              <span class="range__value numberRangeValue"
-                                 >1</span
-                              >
-									</div>
+											<input
+												type="range"
+												min="1"
+												max="5"
+												id="numberRange"
+												value="1"
+												class="range__input"
+											/>
+											<span class="range__value numberRangeValue"
+												>1</span
+											>
+										</div>
 
-									<div class="number__tabs numberRangeTariffs">
-										<label class="number__item item-constructor" data-room-price="2000">
-											<div class="item-constructor__icon">
-												<img
-													src="./img/services/bathroom.svg"
-													alt="Bathroom"
-												/>
-											</div>
-											<p class="item-constructor__title">
-												Подписка на <span>2</span> уборки в месяц
-											</p>
-											<input class="item-constructor__checkbox tariffscheckbox" type="radio" name="keyTariffs" value="Подписка на 2 уборки в месяц" checked>
-											<span class="item-constructor__checkmark"></span>
-										</label>
-										<label class="number__item item-constructor" data-room-price="1800">
-											<div class="item-constructor__icon">
-												<img
-													src="./img/services/bathroom.svg"
-													alt="Bathroom"
-												/>
-											</div>
-											<p class="item-constructor__title">
-												Подписка на <span>4</span> уборки в месяц
-											</p>
-											<input class="item-constructor__checkbox tariffscheckbox" type="radio" name="keyTariffs" value="Подписка на 4 уборки в месяц">
-											<span class="item-constructor__checkmark"></span>
-										</label>
+										<div class="number__tabs numberRangeTariffs">
+											<label class="number__item item-constructor" data-room-price="2000">
+												<div class="item-constructor__icon">
+													<img
+														src="./img/services/bathroom.svg"
+														alt="Bathroom"
+													/>
+												</div>
+												<p class="item-constructor__title">
+													Подписка на <span>2</span> уборки в месяц
+												</p>
+												<input class="item-constructor__checkbox tariffscheckbox" type="radio" name="keyTariffs" value="Подписка на 2 уборки в месяц" checked>
+												<span class="item-constructor__checkmark"></span>
+											</label>
+											<label class="number__item item-constructor" data-room-price="1800">
+												<div class="item-constructor__icon">
+													<img
+														src="./img/services/bathroom.svg"
+														alt="Bathroom"
+													/>
+												</div>
+												<p class="item-constructor__title">
+													Подписка на <span>4</span> уборки в месяц
+												</p>
+												<input class="item-constructor__checkbox tariffscheckbox" type="radio" name="keyTariffs" value="Подписка на 4 уборки в месяц">
+												<span class="item-constructor__checkmark"></span>
+											</label>
+										</div>
 									</div>
 									
 									<p class="number__sum subtitle numberRangeSum"></p>
 
-                           <a href="#contact" class="services__btn btn goto"
+                           <a href="#contact" class="number__btn btn goto"
                               >Рассчитать вашу подписку</a
                            >
                         </div>

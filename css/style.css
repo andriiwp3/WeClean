@@ -1023,7 +1023,8 @@ body.lock {
 }
 
 .number__body {
-  padding: 10px 0;
+  position: relative;
+  padding: 10px 0 0;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1035,6 +1036,20 @@ body.lock {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.number__cont {
+  margin: auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1081,7 +1096,12 @@ body.lock {
 }
 
 .number__sum {
-  margin: 0px 0px 40px 0px;
+  margin: 0px 0px 30px 0px;
+}
+
+.number__btn {
+  position: relative;
+  bottom: 0;
 }
 
 .steps {
